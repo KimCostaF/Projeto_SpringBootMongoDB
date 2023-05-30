@@ -18,10 +18,10 @@ public class Instatiation implements CommandLineRunner {
         userRepository.deleteAll();
 
 
-        User maria = new User(null, "Maria Silva", "maria@gmail.com");
+        User carlos = new User(null, "Carlos Silva", "carlos@gmail.com");
         User alex = new User(null, "Alex Souza", "alex@gmail.com");
-        User bill = new User(null, "Bill Afonso ", "bill@gmail.com");
+        User maria = new User(null,"Maria Souza","maria@gmail.com");
 
-        userRepository.saveAll(Arrays.asList(maria,alex,bill));
+        userRepository.saveAll(Arrays.asList(carlos,alex,maria));
     }
 }
