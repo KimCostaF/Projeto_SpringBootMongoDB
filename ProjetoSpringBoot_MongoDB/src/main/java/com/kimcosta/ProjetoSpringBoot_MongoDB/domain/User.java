@@ -13,8 +13,9 @@ import java.util.Objects;
 public class User implements Serializable {
     @Id
     private String id;
-    private String email;
     private String nome;
+    private String email;
+
     @DBRef(lazy = true)
     private List<Post> posts = new ArrayList<>();
 

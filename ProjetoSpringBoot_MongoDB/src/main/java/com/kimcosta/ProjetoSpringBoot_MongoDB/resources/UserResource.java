@@ -1,6 +1,7 @@
 package com.kimcosta.ProjetoSpringBoot_MongoDB.resources;
 
 
+import com.kimcosta.ProjetoSpringBoot_MongoDB.domain.Post;
 import com.kimcosta.ProjetoSpringBoot_MongoDB.domain.User;
 import com.kimcosta.ProjetoSpringBoot_MongoDB.dto.UserDTO;
 import com.kimcosta.ProjetoSpringBoot_MongoDB.services.UserService;
@@ -10,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,6 +53,13 @@ public class UserResource {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @RequestMapping(value ="/{id}/posts",method=RequestMethod.GET)
+    public ResponseEntity <List<Post>> findposts(@PathVariable String id){
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
+    }
+
 
 
 
